@@ -24,5 +24,5 @@ $ sudo git init --bare sample.git
 ```bash
 $ sudo chown -R git:git sample.git
 ```
-5.现在这个仓库的地址为git@source_path/URL:sample.git，之后就可以进行相关的推送了。
+5.现在这个仓库的地址为git@source_path/URL:/home/src/sample.git，之后就可以进行相关的推送了。
 
