@@ -7,7 +7,7 @@
 对于版本兼容以及包管理问题，我们分别使用pyenv和virtualenv这两个工具来解决。
 pyenv可以帮助你在一台开发机上建立多个版本的python环境，并提供方便的切换方法。
 virtualenv顾名思义，它可以提供一个虚拟的python环境，用户可以建立多个虚拟环境，每个环境里面的python可以是不同的，也可以是相同的，而且环境之间相互独立。以下为示意图。
-![pyenv+virtualenv](/Users/jerry/Documents/GitHub/Learn-way/Develop/pyenv+virtualenv.png)
+![pyenv+virtualenv](https://github.com/Jerrywyj/Learn-way/blob/master/Develop/pyenv%2Bvirtualenv.png)
 ##3.具体配置过程
 根据之前的示意图我们便有了十分清晰的配置思路，首先使用pyenv安装上我们项目所需版本的python并切换至该版本，再用virtualenv创建一个虚拟环境，最后在虚拟环境中安装上项目所需的包。
 ###3.1安装pyenv和virtualenv
