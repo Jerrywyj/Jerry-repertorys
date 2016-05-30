@@ -44,7 +44,7 @@ uGUI中的每个UI元素都必须放置于某个Canvas之下，也就是说，�
 
 这里可以把Anchors理解为容纳UI背景画面的“盒子”，Min X ＝ 0表示“盒子”的左边离屏幕左边框的距离为屏幕总长的0%，Max X ＝ 0表示“盒子”的右边离屏幕左边框的距离为屏幕总长的100%，垂直方向的设定依此类推。既然Anchors是容纳UI背景画面的"盒子"，那么我们就可以设定UI背景图片与"盒子"边界的距离——内边距（确切的说应该是pivot点离“盒子”边界的距离），这和html dom模型中的padding的概念是一样的，图中上下左右内边距都设置为0，也就是说UI背景画面将铺满整个Canvas。
 
-写到这里其实已经实现了保证UI元素在屏幕中的相对位置不变的目的，但UI背景图片的设定算是特殊的例子，下面再以一个Button为例。假设有一个Button位于450X500的Canvas中，设定如下图所示：
+写到这里其实已经实现了保证UI元素在屏幕中的相对位置不变的目的，但UI背景图片的设定算是特殊的例子，下面再以一个Button为例。假设有一个Button位于450X500的Canvas中，设定如下图所示：
 
 ![Anchors](https://github.com/Jerrywyj/Learn-way/blob/master/Unity3D/Unity3D%E5%9F%BA%E4%BA%8EuGUI%E7%B3%BB%E7%BB%9F%E7%9A%84%E5%B1%8F%E5%B9%95%E9%80%82%E9%85%8D/Anchors.png)
 
