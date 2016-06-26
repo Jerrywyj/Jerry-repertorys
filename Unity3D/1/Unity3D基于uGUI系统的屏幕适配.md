@@ -23,30 +23,30 @@ uGUI中的每个UI元素都必须放置于某个Canvas之下，也就是说，�
 #### 4.1 Screen Space-Overlay
 该模式下Canvas会填满整个屏幕空间，并将画布下的所有UI元素置于屏幕的最上层，如果屏幕尺寸被改变，Canvas将自动改变尺寸来匹配屏幕。这种模式主要适用于单纯的UI界面制作，如登陆、创建游戏等。
 
-![CanvasOverlay](https://github.com/Jerrywyj/Learn-way/blob/master/Unity3D/Unity3D%E5%9F%BA%E4%BA%8EuGUI%E7%B3%BB%E7%BB%9F%E7%9A%84%E5%B1%8F%E5%B9%95%E9%80%82%E9%85%8D/CanvasOverlay.png)
+![CanvasOverlay](https://github.com/Jerrywyj/Learn-way/blob/master/Unity3D/1/CanvasOverlay.png)
 
 #### 4.2 Screen Space-Camera
 该模式下Canvas会被放置在指定Camera前方的某个距离内（该距离可以配置），当指定的Camera是主Camera时，如果屏幕尺寸被改变，画布将自动改变尺寸来匹配屏幕。当Camera和Canvas存在其它GameObject时，Canvas会被遮盖。这种模式适用的开发情景广，既可以用于单纯的UI界面制作，也可以用做头瞄等。
 
-![CanvasCamera](https://github.com/Jerrywyj/Learn-way/blob/master/Unity3D/Unity3D%E5%9F%BA%E4%BA%8EuGUI%E7%B3%BB%E7%BB%9F%E7%9A%84%E5%B1%8F%E5%B9%95%E9%80%82%E9%85%8D/CanvasCamera.png)
+![CanvasCamera](https://github.com/Jerrywyj/Learn-way/blob/master/Unity3D/1/CanvasCamera.png)
 
 #### 4.3 World Space
 该模式下UI元素将被当作场景中的plane object，Canvas不会一直呈现在Camera前面。这种模式适用于UI本身就是3D场景的开发情景。并且不存在适配问题。
 
-![CanvasWorldSpace](https://github.com/Jerrywyj/Learn-way/blob/master/Unity3D/Unity3D%E5%9F%BA%E4%BA%8EuGUI%E7%B3%BB%E7%BB%9F%E7%9A%84%E5%B1%8F%E5%B9%95%E9%80%82%E9%85%8D/CanvasWorldSpace.png)
+![CanvasWorldSpace](https://github.com/Jerrywyj/Learn-way/blob/master/Unity3D/1/CanvasWorldSpace.png)
 
 ## 5 例子
 以Screen Space-Overlay模式为例，首先应当将UI Scale Mode设为Scale With Screen Size即根据屏幕尺寸进行缩放，然后设定参照分辨率，如1920X1080，这得根据游戏策划或者美工师的设计来确定。Screen Match Mode使用默认即可，这一属性决定Canvas的缩放基准以及是否进行裁剪，具体可看官方文档。以上设定可解决UI元素的缩放比例问题，设定完成后，该Canvas下的UI元素将根据屏幕尺寸进行缩放。
 
 接着我们来解决另一个问题——保证UI元素的锚点在屏幕中的相对位置不变。首先将UI背景画面的Rect Transform配置如下：
 
-![stretch](https://github.com/Jerrywyj/Learn-way/blob/master/Unity3D/Unity3D%E5%9F%BA%E4%BA%8EuGUI%E7%B3%BB%E7%BB%9F%E7%9A%84%E5%B1%8F%E5%B9%95%E9%80%82%E9%85%8D/stretch.png)
+![stretch](https://github.com/Jerrywyj/Learn-way/blob/master/Unity3D/1/stretch.png)
 
 这里可以把Anchors理解为容纳UI背景画面的“盒子”，Min X ＝ 0表示“盒子”的左边离屏幕左边框的距离为屏幕总长的0%，Max X ＝ 0表示“盒子”的右边离屏幕左边框的距离为屏幕总长的100%，垂直方向的设定依此类推。既然Anchors是容纳UI背景画面的"盒子"，那么我们就可以设定UI背景图片与"盒子"边界的距离——内边距（确切的说应该是pivot点离“盒子”边界的距离），这和html dom模型中的padding的概念是一样的，图中上下左右内边距都设置为0，也就是说UI背景画面将铺满整个Canvas。
 
 写到这里其实已经实现了保证UI元素在屏幕中的相对位置不变的目的，但UI背景图片的设定算是特殊的例子，下面再以一个Button为例。假设有一个Button位于450X500的Canvas中，设定如下图所示：
 
-![Anchors](https://github.com/Jerrywyj/Learn-way/blob/master/Unity3D/Unity3D%E5%9F%BA%E4%BA%8EuGUI%E7%B3%BB%E7%BB%9F%E7%9A%84%E5%B1%8F%E5%B9%95%E9%80%82%E9%85%8D/Anchors.png)
+![Anchors](https://github.com/Jerrywyj/Learn-way/blob/master/Unity3D/1/Anchors.png)
 
 "盒子"的左边离屏幕左边框的距离为屏幕总长的30%，"盒子"的右边离屏幕左边框的距离为屏幕总长的70%，上下边以此类推，按钮铺满“盒子”。
 
